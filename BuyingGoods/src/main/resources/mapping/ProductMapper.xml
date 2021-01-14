@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pp.buying.dao.ProductDao">
+    <resultMap id="product" type="com.pp.buying.entity.Product">
+        <result property="prodectName" column="prodect_name" />
+    </resultMap>
+    <!-- 获取产品 -->
+    <select id = "getProduct" resultMap="product">
+        select * from t_product where id = #{id}
+    </select>
+
+    <insert id="addProduct" parameterType="product">
+        insert into  t_product(prodect_name,stock,price,version,note) values(#{prodectName},#{stock},#{price},#{version},#{note});
+    </insert>
+
+    <update id="updateProduct" parameterType="product">
+        update t_product set prodect_name = #{prodectName},stock = #{stock},price = #{price},version = #{version},note=#{note} where id = #{id};
+    </update>
+
+    <delete id="deleteProduct" parameterType="java.lang.Long">
+        delete from t_product where id = #{id}
+    </delete>
+
+    <update id="decreaseProduct" >
+        update t_product set stock = stock - #{quantity}  where id = #{id}
+    </update>
+</mapper>
