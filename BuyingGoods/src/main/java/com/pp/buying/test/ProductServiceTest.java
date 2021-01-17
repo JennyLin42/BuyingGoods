@@ -4,6 +4,8 @@ import com.pp.buying.entity.Product;
 import com.pp.buying.service.ProductService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -13,6 +15,8 @@ import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ProductServiceTest {
+
+    private static final Logger log = LoggerFactory.getLogger(ProductServiceTest.class);
 
     @Autowired
     ProductService productService;
@@ -35,7 +39,8 @@ public class ProductServiceTest {
         int i = productService.addProduct(product);
         assertEquals(1,i);
 
-        System.out.println(product);//配置 keyProperty="id" useGeneratedKeys="true"  就可以把主键赋值到id这一列 即Mybatis会自增ID返回
+        //配置 keyProperty="id" useGeneratedKeys="true"  就可以把主键赋值到id这一列 即Mybatis会自增ID返回
+        log.info(product.toString());
         //但是如果数据库已经设置了自增ID则可以使用↓
 //        但是如果数据库已经设置了自增ID则可以使用，查询最后一个插入的主键，order=after"表示先insert再查询
 //        <selectKey resultType="java.lang.Long" order="AFTER" keyProperty="id"> SELECT LAST_INSERT_ID() </selectKey>
@@ -43,8 +48,8 @@ public class ProductServiceTest {
 
     @Test
     public void updatePro(){
-        Product product = productService.getProductById(2L);
-        product.setNote("再次保存2");
+        Product product = productService.getProductById(3L);
+        product.setNote(null);
         int i = productService.updateProduct(product);
         assertEquals(1,i);
     }

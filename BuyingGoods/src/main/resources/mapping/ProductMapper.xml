@@ -19,7 +19,15 @@
     </insert>
 
     <update id="updateProduct" parameterType="product">
-        update t_product set prodect_name = #{prodectName},stock = #{stock},price = #{price},version = #{version},note=#{note} where id = #{id};
+        update t_product
+        <set>
+            <if test="prodectName!=null">prodect_name = #{prodectName},</if>
+            <if test="stock!=null">stock = #{stock},</if>
+            <if test="price!=null">price = #{price},</if>
+            <if test="version!=null">version = #{version},</if>
+            <if test="note!=null">note=#{note}</if>
+        </set>
+        where id = #{id};
     </update>
 
     <delete id="deleteProductById" parameterType="java.lang.Long">
