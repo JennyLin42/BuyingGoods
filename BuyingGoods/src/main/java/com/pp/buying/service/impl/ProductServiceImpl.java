@@ -13,8 +13,8 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductDao productDao;
 
-    public Product getProduct(Long id){
-        return productDao.getProduct(id);
+    public Product getProductById(Long id){
+        return productDao.getProductById(id);
     }
 
     public int addProduct(Product product){
@@ -28,8 +28,8 @@ public class ProductServiceImpl implements ProductService {
         return  0;
     }
 
-    public int deleteProduct(Long id){
-        return productDao.deleteProduct(id);
+    public int deleteProductById(Long id){
+        return productDao.deleteProductById(id);
     }
 
     public int decreaseProduct(@Param("id") Long id, @Param("quantity") int quantity){

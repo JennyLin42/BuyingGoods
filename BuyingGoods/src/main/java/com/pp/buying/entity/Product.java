@@ -55,4 +55,16 @@ public class Product {
     public void setNote(String note) {
         this.note = note;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", prodectName='" + prodectName + '\'' +
+                ", stock=" + stock +
+                ", price=" + price +
+                ", version=" + version +
+                ", note='" + note + '\'' +
+                '}';
+    }
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pp.buying.dao.PurchaseRecordDao">
+    <resultMap id="purchaseRecord" type="com.pp.buying.entity.PurchaseRecord">
+        <result property="userId" column="user_id" />
+        <result property="productId" column="product_id" />
+        <result property="purchaseDate" column="purchase_date" />
+        <result property="isDelete" column="is_delete" />
+    </resultMap>
+    <!-- 获取购买记录 -->
+    <select id = "getPurchaseRecordById" resultMap="purchaseRecord">
+        select * from t_purchase_record where id = #{id}
+    </select>
+
+    <insert id="addPurchaseRecord" parameterType="purchaseRecord" >
+        <selectKey resultType="java.lang.Long" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into  t_purchase_record(user_id,product_id,price,quantity,sum,purchase_date,note) values(#{userId},#{productId},#{price},#{quantity},#{sum},#{purchaseDate},#{note});
+    </insert>
+
+    <update id="deletePurchaseRecord" >
+        update t_purchase_record set is_delete = 1 where id = #{id}
+    </update>
+
+</mapper>

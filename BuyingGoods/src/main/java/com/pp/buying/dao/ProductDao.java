@@ -8,13 +8,13 @@ import org.springframework.stereotype.Repository;
 //@Mapper
 public interface ProductDao {
     // 获取产品
-    public Product getProduct(Long id);
+    public Product getProductById(Long id);
     //添加产品
     public int addProduct(Product product);
 
     public int updateProduct(Product product);
 
-    public int deleteProduct(Long id);
+    public int deleteProductById(Long id);
 
     //减库存，而@Param标明MyBatis参数传递给后台
     public int decreaseProduct(@Param("id") Long id, @Param("quantity") int quantity);

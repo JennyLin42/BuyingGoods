@@ -7,11 +7,14 @@
         <result property="prodectName" column="prodect_name" />
     </resultMap>
     <!-- 获取产品 -->
-    <select id = "getProduct" resultMap="product">
+    <select id = "getProductById" resultMap="product">
         select * from t_product where id = #{id}
     </select>
 
-    <insert id="addProduct" parameterType="product">
+    <insert id="addProduct" parameterType="product" >
+        <selectKey resultType="java.lang.Long" order="AFTER" keyProperty="id">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
         insert into  t_product(prodect_name,stock,price,version,note) values(#{prodectName},#{stock},#{price},#{version},#{note});
     </insert>
 
@@ -19,11 +22,7 @@
         update t_product set prodect_name = #{prodectName},stock = #{stock},price = #{price},version = #{version},note=#{note} where id = #{id};
     </update>
 
-    <delete id="deleteProduct" parameterType="java.lang.Long">
+    <delete id="deleteProductById" parameterType="java.lang.Long">
         delete from t_product where id = #{id}
     </delete>
-
-    <update id="decreaseProduct" >
-        update t_product set stock = stock - #{quantity}  where id = #{id}
-    </update>
 </mapper>
