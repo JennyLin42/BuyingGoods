@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 //@Mapper
+@Repository
 public interface ProductDao {
     // 获取产品
     public Product getProductById(Long id);
@@ -16,6 +17,9 @@ public interface ProductDao {
 
     public int deleteProductById(Long id);
 
-    //减库存，而@Param标明MyBatis参数传递给后台
-    public int decreaseProduct(@Param("id") Long id, @Param("quantity") int quantity);
+    //减库存，而@Param标明MyBatis参数传递给后台 版本1
+//    public int decreaseProoduct(@Param("id") Long id, @Param("quantity") int quantity);
+
+    public int decreaseProduct(@Param("id") Long id, @Param("quantity") int quantity,int version);
+
 }

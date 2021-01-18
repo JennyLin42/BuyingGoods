@@ -12,6 +12,4 @@ public interface ProductService {
 
     public int deleteProductById(Long id);
 
-    public int decreaseProduct(@Param("id") Long id, @Param("quantity") int quantity);
-
 }

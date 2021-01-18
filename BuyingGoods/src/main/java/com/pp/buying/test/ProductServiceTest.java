@@ -48,8 +48,9 @@ public class ProductServiceTest {
 
     @Test
     public void updatePro(){
-        Product product = productService.getProductById(3L);
+        Product product = productService.getProductById(2L);
         product.setNote(null);
+        product.setStock(10000);
         int i = productService.updateProduct(product);
         assertEquals(1,i);
     }
@@ -60,10 +61,10 @@ public class ProductServiceTest {
         assertEquals(1,i);
     }
 
-    @Test
-    public void decreasePro(){
-        productService.decreaseProduct(2L,20);
-    }
+//    @Test
+//    public void decreasePro(){
+//        productService.decreaseProduct(2L,1);
+//    }
 }
 
 

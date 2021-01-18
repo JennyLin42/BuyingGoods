@@ -54,6 +54,11 @@ public class PurchaseRecordServiceTest {
         assertEquals(1,i);
     }
 
+    @Test
+    public void purchase(){
+        purchaseRecordService.purchse(1L,2L,1);
+    }
+
 }
 
 

@@ -32,8 +32,4 @@ public class ProductServiceImpl implements ProductService {
         return productDao.deleteProductById(id);
     }
 
-    public int decreaseProduct(@Param("id") Long id, @Param("quantity") int quantity){
-        return productDao.decreaseProduct(id,quantity);
-    }
-
 }

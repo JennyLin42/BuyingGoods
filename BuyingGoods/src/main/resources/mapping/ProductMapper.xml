@@ -33,4 +33,13 @@
     <delete id="deleteProductById" parameterType="java.lang.Long">
         delete from t_product where id = #{id}
     </delete>
+
+    <!--版本1-->
+<!--    <update id="decreaseProduct" >-->
+<!--        update t_product set stock = stock - #{quantity}  where id = #{id}-->
+<!--    </update>-->
+    <update id="decreaseProduct" >
+        update t_product set stock = stock - #{quantity},version = version + 1
+            where id = #{id} and version = #{version}
+    </update>
 </mapper>

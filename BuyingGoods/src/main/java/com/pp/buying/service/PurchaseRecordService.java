@@ -10,4 +10,6 @@ public interface PurchaseRecordService {
 
     public int deletePurchaseRecord(long id);
 
+    public boolean purchse(Long userId,Long productId,int quantity);
+
 }
