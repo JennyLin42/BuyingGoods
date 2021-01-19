@@ -8,7 +8,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
+import redis.clients.jedis.Jedis;
 
 import java.util.Date;
 
@@ -57,6 +59,16 @@ public class PurchaseRecordServiceTest {
     @Test
     public void purchase(){
         purchaseRecordService.purchse(1L,2L,1);
+    }
+
+    @Autowired
+    StringRedisTemplate stringRedisTemplate;
+
+    @Test
+    public void testJedis(){
+        Jedis jedis = (Jedis) stringRedisTemplate.getConnectionFactory().getConnection().getNativeConnection();
+        jedis.set("key1","aaa");
+        System.out.println(jedis.get("key1"));
     }
 
 }
