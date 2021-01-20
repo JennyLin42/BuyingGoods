@@ -14,6 +14,9 @@ public class ProductServiceImpl implements ProductService {
     private ProductDao productDao;
 
     public Product getProductById(Long id){
+        if(id == null){
+            return  null;
+        }
         return productDao.getProductById(id);
     }
 

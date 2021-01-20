@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TaskServiceImpl implements TaskService {
 
-    @Scheduled(cron = "* * * * * ?")
+    @Scheduled(cron = "0 0 1 * * ?")
     public void sayHello(){
         System.out.println("定时任务");
     }
