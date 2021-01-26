@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -34,6 +35,12 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public ResultBody exceptionHandler(HttpServletRequest req,Exception e){
         return ResultBody.error(CommonEnum.INTERNAL_SERVER_ROR);
+    }
+
+    @ExceptionHandler(value = IOException.class)
+    @ResponseBody
+    public ResultBody exceptionHandler(HttpServletRequest req,IOException e){
+        return ResultBody.error(CommonEnum.NOT_FOUND);
     }
 
 }
