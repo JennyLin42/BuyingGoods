@@ -7,6 +7,10 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistration
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * 配置类
+ */
+
 @Configuration
 public class BuyingConfig implements WebMvcConfigurer {
 

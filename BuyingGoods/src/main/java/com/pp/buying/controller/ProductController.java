@@ -7,6 +7,9 @@ import com.pp.buying.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 测试增删改查
+ */
 @RestController
 public class ProductController {
 
