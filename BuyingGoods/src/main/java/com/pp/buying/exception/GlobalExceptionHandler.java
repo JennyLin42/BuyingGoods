@@ -2,7 +2,7 @@ package com.pp.buying.exception;
 
 
 import com.pp.buying.exception.baseerrorinfo.CommonEnum;
-import com.pp.buying.entity.ResultBody;
+import com.pp.buying.vo.ResultBody;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
+/**
+ * 全局异常处理
+ */
 @ControllerAdvice
 public class GlobalExceptionHandler {
 

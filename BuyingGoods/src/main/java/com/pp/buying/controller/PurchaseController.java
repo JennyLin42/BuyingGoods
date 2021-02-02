@@ -1,6 +1,6 @@
 package com.pp.buying.controller;
 
-import com.pp.buying.entity.Result;
+import com.pp.buying.vo.Result;
 import com.pp.buying.service.PurchaseRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

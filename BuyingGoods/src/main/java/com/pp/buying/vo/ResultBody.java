@@ -1,4 +1,4 @@
-package com.pp.buying.entity;
+package com.pp.buying.vo;
 
 import com.pp.buying.exception.baseerrorinfo.BaseErrorInfoInterface;
 import com.pp.buying.exception.baseerrorinfo.CommonEnum;

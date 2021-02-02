@@ -1,6 +1,6 @@
 package com.pp.buying.controller;
 
-import com.pp.buying.entity.ResultBody;
+import com.pp.buying.vo.ResultBody;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;

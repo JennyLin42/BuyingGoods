@@ -1,11 +1,10 @@
 package com.pp.buying.controller;
 
 import com.pp.buying.entity.Product;
-import com.pp.buying.entity.ResultBody;
+import com.pp.buying.vo.ResultBody;
 import com.pp.buying.exception.BizException;
 import com.pp.buying.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

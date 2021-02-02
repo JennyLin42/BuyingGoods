@@ -1,4 +1,4 @@
-package com.pp.buying.entity;
+package com.pp.buying.vo;
 
 public class Result {
     private boolean success = false;
